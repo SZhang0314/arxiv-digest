@@ -1,0 +1,36 @@
+# arXiv Weekly Digest — 站点配置
+# 云端 GitHub Actions 与本地脚本共用此文件。
+
+# 站点标题
+site_title: "arXiv 每周文献摘要"
+
+# 要抓取的预设方向（可多选：physics / ai / chem / math）
+# 也可用 custom 自定义类别
+topics:
+  - key: physics
+    title: "物理 / 凝聚态"
+  - key: ai
+    title: "AI / EE / CS"
+  - key: chem
+    title: "化学 / 材料"
+
+# 时间窗口（小时）。168 = 一周。
+window_hours: 168
+
+# 每个方向最多抓取的论文数（防止翻译量爆炸）
+max_per_topic: 400
+
+# 综述：自动挑选深读的论文数
+deep_read_count: 12
+
+# LLM 端点（OpenAI 兼容）。key 通过环境变量 LLM_API_KEY 注入，绝不写入本文件。
+llm:
+  base_url: "https://api.llm.ustc.edu.cn/v1"   # OpenAI 兼容，注意以 /v1 结尾
+  model: "deepseek-flash"
+  temperature: 0.2
+  max_tokens: 4000
+  # 并发翻译的进程/线程数
+  concurrency: 6
+
+# 网页每页显示论文数（清单很长，分页）
+page_size: 50

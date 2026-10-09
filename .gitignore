@@ -1,0 +1,12 @@
+# 本地密钥与临时文件
+keys.txt
+*.local
+__pycache__/
+*.pyc
+
+# 测试产物
+config.test.yml
+docs/archive/
+
+# 生成的中间数据（如需保留历史可删掉下面两行）
+# docs/data/
