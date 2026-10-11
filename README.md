@@ -66,6 +66,28 @@ python scripts/build_site.py
 - API key 只放在 **GitHub Secrets**，工作流通过环境变量注入；`config.yml`、`docs/` 里**绝不含 key**。
 - Actions 用仓库自带 `GITHUB_TOKEN`（`permissions: contents: write`）提交，无需额外凭证。
 
+## 换 LLM API（重要）
+
+GitHub Actions 的 runner 在境外，**访问不了校园网/内网端点**（如 `api.llm.ustc.edu.cn`）。云端运行必须用公网可达的 OpenAI 兼容 API，例如：
+
+| 提供商 | base_url | 模型示例 |
+|---|---|---|
+| DeepSeek 官方 | `https://api.deepseek.com` | `deepseek-chat` |
+| SiliconFlow | `https://api.siliconflow.cn/v1` | `deepseek-ai/DeepSeek-V3`、`Qwen/Qwen2.5-72B-Instruct` |
+| OpenRouter | `https://openrouter.ai/api/v1` | 任选（有免费模型） |
+| OpenAI | `https://api.openai.com/v1` | `gpt-4o-mini` |
+
+设置方法（Settings → Secrets and variables → Actions）：
+- `LLM_API_KEY` = 你的 key（必填）
+- `LLM_BASE_URL` = 上表 base_url（**必填**——不设则默认 USTC，云端会超时）
+- `LLM_MODEL` = 模型名（建议设）
+
+本地跑则不受限制，`keys.txt` 或 `LLM_API_KEY` 均可（本地能访问校园网端点）。
+
+费用参考：一周约 300-900 篇摘要翻译+总结，DeepSeek-chat 约 $0.1-0.5/周；用 `max_per_topic` 控制篇数。
+
+设好后：Actions → Weekly arXiv Digest → Run workflow 手动触发验证。
+
 ## 说明
 
 - arXiv 内容版权归原作者；本站仅做翻译与摘要的自动聚合，均附原文 arXiv/PDF 链接。

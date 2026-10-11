@@ -24,8 +24,10 @@ max_per_topic: 400
 deep_read_count: 12
 
 # LLM 端点（OpenAI 兼容）。key 通过环境变量 LLM_API_KEY 注入，绝不写入本文件。
+# ⚠️ GitHub Actions 云端 runner 在境外，访问不了校园网端点（如 ustc）。
+#    云端运行请在 GitHub Secrets 设 LLM_BASE_URL 为公网可达端点（DeepSeek/SiliconFlow/OpenRouter 等）。
 llm:
-  base_url: "https://api.llm.ustc.edu.cn/v1"   # OpenAI 兼容，注意以 /v1 结尾
+  base_url: "https://api.llm.ustc.edu.cn/v1"   # 本地可用；云端请用 Secrets 覆盖
   model: "deepseek-flash"
   temperature: 0.2
   max_tokens: 4000
