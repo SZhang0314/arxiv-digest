@@ -1,10 +1,10 @@
-# 本地临时配置：仅物理方向（本次运行用）
+# 本地临时配置：仅 AI/EE/CS 方向（本次运行用）
 site_title: "arXiv 每周文献摘要"
 topics:
-  - key: physics
-    title: "物理 / 凝聚态"
+  - key: ai
+    title: "AI / EE / CS"
 window_hours: 168
-max_per_topic: 150
+max_per_topic: 200
 deep_read_count: 12
 llm:
   base_url: "https://api.llm.ustc.edu.cn/v1"
