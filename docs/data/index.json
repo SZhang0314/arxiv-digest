@@ -1,11 +1,21 @@
 {
- "generated_at": "2026-10-11T16:16:30.347662+00:00",
+ "generated_at": "2026-10-12T02:13:27.500349+00:00",
  "window_hours": 168,
  "topics": [
   {
+   "key": "physics",
+   "title": "物理 / 凝聚态",
+   "total": 150
+  },
+  {
    "key": "ai",
    "title": "AI / EE / CS",
-   "total": 200
+   "total": 150
+  },
+  {
+   "key": "chem",
+   "title": "化学 / 材料",
+   "total": 150
   }
  ]
 }
